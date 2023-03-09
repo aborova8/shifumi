@@ -1,0 +1,51 @@
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 80px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+
+    @media (max-width: 576px) { 
+        padding: 0 10px;
+    }
+
+    .header{
+        display:flex;
+        border: 3px solid $header-outline;        
+        border-radius: 1rem;
+        padding: 1.25rem;
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 576px) { 
+            margin-bottom: 20px;
+        }
+    
+        .text{
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 2rem;
+            margin-right: 100px;
+        }
+    
+        .score-box{
+            padding: .75rem 2rem;
+            background-color: #fff;
+            color: $score-text;
+            border-radius: 5px;
+            width: 140px;
+    
+            &__score{
+                color: $dark-text;
+                font-size: 3.5rem;
+                font-weight: 700;
+            }
+    
+        }
+}
+}

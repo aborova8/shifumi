@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Play from "./components/Play";
+import Game from "./components/Game";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
+  const [myChoice, setMyChoice] = useState("");
+  const [score, setScore] = useState(0);
+  const [botScore, setBotScore] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <Header score={score} botScore={botScore} />
+        <Routes>
+          <Route path="/" element={<Play setMyChoice={setMyChoice} />} />
+          <Route
+            path="/game"
+            element={
+              <Game
+                myChoice={myChoice}
+                score={score}
+                setScore={setScore}
+                botScore={botScore}
+                setBotScore={setBotScore}
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </>
   );
 }
 
